@@ -5,7 +5,7 @@ import { Card } from 'primereact/card'
 
 
 
-const ArtistList = () => {
+const ArtistList = ({ setSelectedArtistId}) => {
     const [artists, setArtists] = useState([]);
 
     useEffect(() => {
@@ -21,7 +21,10 @@ const ArtistList = () => {
             <div className='p-grid p-justify-center'>
                 {artists.map(artist =>(
                     <div key={artist.id} className="p-col-12 p-md-4 p-lg-3">
-                        <Card title={artist.name}>
+                        <Card 
+                        title={artist.name} 
+                        onClick={()=>setSelectedArtistId(artist)}
+                        className='p-card-clickable'>
 
                         </Card>
 

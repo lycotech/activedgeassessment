@@ -10,10 +10,18 @@ export const getAllArtists = () => {
 };
 
 // Function to fetch artist's albums
-export const getArtistAlbums = artistId => {
+export const getArtistAlbums = (artistId) => {
   return fetch(`${BASE_URL}/albums?userId=${artistId}`)
-    .then(response => response.json())
-    .catch(error => console.error('Error fetching albums:', error));
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .catch(error => {
+      console.error('Error fetching artist albums:', error);
+      throw error;
+    });
 };
 
 // Function to fetch album photos
