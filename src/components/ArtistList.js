@@ -1,5 +1,6 @@
 import React, {useState, useEffect }from 'react';
 import {getAllArtists, getArtistAlbums, getAllTweets} from '../ApiUtils';
+import { Card } from 'primereact/card'
 
 
 
@@ -17,14 +18,17 @@ const ArtistList = () => {
     return(
         <div>
             <h1> Artists in Chocolate City</h1>
-            <ul>
+            <div className='p-grid p-justify-center'>
                 {artists.map(artist =>(
-                    <li key={artist.id}>
-                        {artist.name}
-                        
-                    </li>
+                    <div key={artist.id} className="p-col-12 p-md-4 p-lg-3">
+                        <Card title={artist.name}>
+
+                        </Card>
+
+                    </div>
                 ))}
-            </ul>
+
+            </div>
         </div>
     )
 
