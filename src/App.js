@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import AlbumList from "./components/AlbumList"
 import ArtistList from "./components/ArtistList";
 import './styles.css';
+import TweetList from "./components/TweetList";
+import { Button } from "primereact/button";
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
         
       </div>
       <div className="main-content">
+        
         {selectedArtist && (
           <AlbumList selectedArtist={selectedArtist} />
         )}

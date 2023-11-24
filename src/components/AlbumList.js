@@ -117,7 +117,7 @@ const AlbumList = ({ selectedArtist }) => {
         {albums.map((album) => (
           <div key={album.id} style={{minHeight: "150px"}}  className="col-md-4">
             <Card  footer={<div>{album.title}</div>}>
-            <img src={album.photos ? album.photos.thumbnailUrl : "https://placehold.co/150"} alt="Album Thumbnail" ></img>
+            <img src={album.photo ? album.photo.thumbnailUrl : "https://placehold.co/150"} alt="Album Thumbnail" ></img>
             </Card>
           </div>
         ))
