@@ -3,25 +3,17 @@
 const BASE_URL = 'https://jsonplaceholder.typicode.com';
 
 // Function to fetch all artists
-export const getAllArtists = () => {
-  return fetch(`${BASE_URL}/users`)
-    .then(response => response.json())
-    .catch(error => console.error('Error fetching artists:', error));
+export const getAllArtists = async() => {
+  const response = await fetch(`${BASE_URL}/users`);
+  return response.json();
+    
 };
 
-// Function to fetch artist's albums
-export const getArtistAlbums = (artistId) => {
-  return fetch(`${BASE_URL}/albums?userId=${artistId}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .catch(error => {
-      console.error('Error fetching artist albums:', error);
-      throw error;
-    });
+// Function to fetch artist's albums by id
+export const getArtistAlbums = async (artistId) => {
+  const response = await fetch(`${BASE_URL}/albums`);
+  return response.json();
+  
 };
 
 // Function to fetch album photos

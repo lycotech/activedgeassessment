@@ -10,11 +10,17 @@ const AlbumList = ({ selectedArtistId }) => {
 
   useEffect(() => {
     // Fetch albums of the selected artist
-    if (selectedArtistId) {
-      getArtistAlbums(selectedArtistId)
-        .then(data => setAlbums(data))
-        .catch(error => console.error('Error fetching albums:', error));
-    }
+    const getAlbum = async () =>{
+      try{
+        const data = await getArtistAlbums(selectedArtistId);
+        setAlbums(data);
+       // selectedAlbum(true);
+      } catch(error){
+        console.error('Error Fecthin Albums', error);
+      }
+    };
+    getAlbum();
+
   }, [selectedArtistId]);
 
   const handleViewAlbum = async albumId => {
@@ -31,13 +37,14 @@ const AlbumList = ({ selectedArtistId }) => {
     <div>
       <h2>Albums</h2>
       <div className="p-grid p-justify-center">
-        {albums.map(album => (
+        {albums.map((album) => (
           <div key={album.id} className="p-col-12 p-md-4 p-lg-3">
             <Card title={album.title}>
               <Button label="View Photos" onClick={() => handleViewAlbum(album.id)} />
             </Card>
           </div>
-        ))}
+        ))
+        };
       </div>
       {selectedAlbum && (
         <div>

@@ -3,17 +3,24 @@ import {getAllArtists, getArtistAlbums, getAllTweets} from '../ApiUtils';
 import { Card } from 'primereact/card'
 
 
-
-
-const ArtistList = ({ setSelectedArtistId}) => {
+const ArtistList = ({setSelectedArtistId}) => {
     const [artists, setArtists] = useState([]);
 
     useEffect(() => {
         // Fetch All Artist on component mount
-        getAllArtists()
-        .then(data => setArtists(data))
-        .catch(error => console.error('Error fecthing artist:', error));
+        const getArtists = async () =>{
+          try{
+            const data = await getAllArtists();
+            setArtists(data);
+              }
+             catch (error){
+              console.error('Error Fetching artist', error);
+             }
+        };
+        getArtists();
+        
     },[]);
+    
     
     return(
         <div>
@@ -22,7 +29,7 @@ const ArtistList = ({ setSelectedArtistId}) => {
                 {artists.map(artist =>(
                     <div key={artist.id} className="p-col-12 p-md-4 p-lg-3">
                         <Card 
-                        title={artist.name} 
+                        title={artist.name}
                         onClick={()=>setSelectedArtistId(artist)}
                         className='p-card-clickable'>
 
