@@ -17,17 +17,16 @@ export const getArtistAlbums = async (artistId) => {
 };
 
 // Function to fetch album photos
-export const getAlbumPhotos = albumId => {
-  return fetch(`${BASE_URL}/albums/${albumId}/photos`)
-    .then(response => response.json())
-    .catch(error => console.error('Error fetching photos:', error));
-};
+export const getAlbumPhotos = async (albumId ) => {
+  const response = await fetch(`${BASE_URL}/albums/${albumId}/photos`);
+  return response.json();
+ };
 
 // Function to fetch all tweets
-export const getAllTweets = () => {
-  return fetch(`${BASE_URL}/comments`)
-    .then(response => response.json())
-    .catch(error => console.error('Error fetching tweets:', error));
+export const getAllTweets = async () => {
+  const response = await fetch(`${BASE_URL}/comments`);
+  return response.json();
+  
 };
 
 // Function to create a tweet

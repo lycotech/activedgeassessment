@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import 'bootstrap/dist/css/bootstrap.css';
 //import { PrimeReactProvider, PrimeReactContext } from 'primereact/api';
 
 

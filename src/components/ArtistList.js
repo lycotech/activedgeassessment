@@ -3,7 +3,7 @@ import {getAllArtists, getArtistAlbums, getAllTweets} from '../ApiUtils';
 import { Card } from 'primereact/card'
 
 
-const ArtistList = ({setSelectedArtistId}) => {
+const ArtistList = ({setSelectedArtist}) => {
     const [artists, setArtists] = useState([]);
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const ArtistList = ({setSelectedArtistId}) => {
                     <div key={artist.id} className="p-col-12 p-md-4 p-lg-3">
                         <Card 
                         title={artist.name}
-                        onClick={()=>setSelectedArtistId(artist)}
+                        onClick={()=>setSelectedArtist(artist)}
                         className='p-card-clickable'>
 
                         </Card>

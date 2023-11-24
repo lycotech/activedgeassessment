@@ -6,20 +6,20 @@ import './styles.css';
 
 
 function App() {
-  const [selectedArtistId, setSelectedArtistId] = useState(null);
-  const handleArtistSelect = (artistId) => {
-    setSelectedArtistId(artistId);
+  const [selectedArtist, setSelectedArtist] = useState(null);
+  const handleArtistSelect = (artist) => {
+    setSelectedArtist(artist);
   };
   return (
     <div className="App">
       <div className="sidebar">
         
-        <ArtistList setSelectedArtistId={handleArtistSelect} />
+        <ArtistList setSelectedArtist={handleArtistSelect} />
         
       </div>
       <div className="main-content">
-        {selectedArtistId && (
-          <AlbumList selectedArtistId={selectedArtistId} />
+        {selectedArtist && (
+          <AlbumList selectedArtist={selectedArtist} />
         )}
       </div>
     </div>
