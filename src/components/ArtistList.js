@@ -40,8 +40,9 @@ const ArtistList = ({setSelectedArtist}) => {
     return(
       <Fragment>
         <div>
-            <h1> Artists in Chocolate City</h1>
+            
             <div className='p-grid p-justify-center'>
+            <h1> Artists in Chocolate City</h1>
                 {artists.map(artist =>(
                     <div key={artist.id} className="p-col-12 p-md-4 p-lg-3">
                         <Card 
@@ -58,7 +59,7 @@ const ArtistList = ({setSelectedArtist}) => {
             </div>
         </div>
         <div className="card flex justify-content-center">
-            <Sidebar className="w-full md:w-50rem lg:w-30rem" position="right" visible={visible} onHide={() => setVisible(false)}>
+            <Sidebar className="w-full md:w-50rem lg:w-40rem p-sidebar-md" position="right" visible={visible} onHide={() => setVisible(false)}>
                 <TweetList selectedArtist={currentArtist} ></TweetList>
             </Sidebar>
             <Button icon="pi pi-arrow-right" onClick={() => setVisible(true)} />
