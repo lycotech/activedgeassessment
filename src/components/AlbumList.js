@@ -49,21 +49,7 @@ const AlbumList = ({ selectedArtist }) => {
       downloadAlbumPhotos(artistAlbums)
     }
         
-    // Fetch albums of the selected artist
-    // const getAlbum = async () =>{
-    //   try{
-    //     const allAlbums = await getArtistAlbums();
-    //     setAlbums(allAlbums);
-    //     const artistAlbums = allAlbums.filter(album => album.userId === selectedArtist.id );
-    //     console.log(selectedArtist)
-    //     console.log(allAlbums)
-    //     setAlbums(artistAlbums);
-      
-    //   } catch(error){
-    //     console.error('Error Fecthin Albums', error);
-    //   }
-    // };
-    // getAlbum();
+    
 
   }, [selectedArtist]);
 
@@ -129,7 +115,7 @@ const AlbumList = ({ selectedArtist }) => {
           <div className="p-grid p-justify-center">
             {albumPhotos.map(photo => (
               <div key={photo.id} className="p-col-12 p-md-4 p-lg-3">
-                <Card>
+                <Card  className="md:w-25rem">
                   <img src={photo.thumbnailUrl} alt={photo.title} />
                   <p>{photo.title}</p>
                 </Card>

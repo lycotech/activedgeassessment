@@ -42,13 +42,13 @@ const ArtistList = ({setSelectedArtist}) => {
         <div>
             
             <div className='p-grid p-justify-center'>
-            <h1> Artists in Chocolate City</h1>
+            <h3> Artists in Chocolate City</h3>
                 {artists.map(artist =>(
                     <div key={artist.id} className="p-col-12 p-md-4 p-lg-3">
                         <Card 
                         title={artist.name}
                         onClick={() => handleSelectedArtist(artist)}
-                        className='p-card-clickable'
+                        className='p-card-clickable '
                           footer={<div><Button label="Tweets" onClick={() => handleOpenSideBar()} /></div>}>
 
                         </Card>
@@ -59,7 +59,7 @@ const ArtistList = ({setSelectedArtist}) => {
             </div>
         </div>
         <div className="card flex justify-content-center">
-            <Sidebar className="w-full md:w-50rem lg:w-40rem p-sidebar-md" position="right" visible={visible} onHide={() => setVisible(false)}>
+            <Sidebar blockScroll={true} className="w-full md:w-50rem lg:w-40rem p-sidebar-md" position="right" visible={visible} onHide={() => setVisible(false)}>
                 <TweetList selectedArtist={currentArtist} ></TweetList>
             </Sidebar>
             <Button icon="pi pi-arrow-right" onClick={() => setVisible(true)} />
