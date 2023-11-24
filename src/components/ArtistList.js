@@ -49,7 +49,7 @@ const ArtistList = ({setSelectedArtist}) => {
                         title={artist.name}
                         onClick={() => handleSelectedArtist(artist)}
                         className='p-card-clickable '
-                          footer={<div><Button label="Tweets" onClick={() => handleOpenSideBar()} /></div>}>
+                          footer={<div><Button icon="pi pi-comments" label="Tweets" onClick={() => handleOpenSideBar()} /></div>}>
 
                         </Card>
 
@@ -62,7 +62,7 @@ const ArtistList = ({setSelectedArtist}) => {
             <Sidebar blockScroll={true} className="w-full md:w-50rem lg:w-40rem p-sidebar-md" position="right" visible={visible} onHide={() => setVisible(false)}>
                 <TweetList selectedArtist={currentArtist} ></TweetList>
             </Sidebar>
-            <Button icon="pi pi-arrow-right" onClick={() => setVisible(true)} />
+          
         </div>
         </Fragment>
     )

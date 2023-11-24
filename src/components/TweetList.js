@@ -90,7 +90,7 @@ const TweetList = ({selectedArtist}) => {
                         subTitle={tweet.body}
                         footer={<div>
                         {/* <Button onClick={() => handleUpdateTweet(tweet.id, 'Updated tweet text')}>Update</Button> */}
-                        <Button onClick={() => handleDeleteTweet(tweet.id)} severity="danger">Delete</Button>
+                        <Button icon="pi pi-trash" onClick={() => handleDeleteTweet(tweet.id)} severity="danger"></Button>
                         </div>}
                         
                         >
